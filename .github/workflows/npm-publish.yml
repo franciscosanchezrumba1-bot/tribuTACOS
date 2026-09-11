@@ -34,6 +34,12 @@ jobs:
       - run: npm ci
         working-directory: frontend
       - run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PACKAGE_VERSION="$(node -p "require('./package.json').version")"
+          if [[ "${PACKAGE_VERSION}" != "${TAG_VERSION}" ]]; then
+            echo "Tag version (${TAG_VERSION}) does not match frontend/package.json version (${PACKAGE_VERSION})."
+            exit 1
+          fi
           if [[ "${GITHUB_REF_NAME}" == *-* ]]; then
             npm publish --tag next
           else
