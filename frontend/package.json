@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest --passWithNoTests"
+    "test": "vitest",
+    "test:ci": "vitest --passWithNoTests"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
