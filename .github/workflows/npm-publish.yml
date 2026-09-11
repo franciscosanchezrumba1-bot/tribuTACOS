@@ -19,7 +19,7 @@ jobs:
         working-directory: frontend
       - run: npm run lint
         working-directory: frontend
-      - run: npx vitest --passWithNoTests
+      - run: npm exec vitest -- --passWithNoTests
         working-directory: frontend
 
   publish-npm:
