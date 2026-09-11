@@ -19,6 +19,8 @@ jobs:
         working-directory: frontend
       - run: npm run lint
         working-directory: frontend
+      - run: npm test -- --passWithNoTests
+        working-directory: frontend
 
   publish-npm:
     needs: build
